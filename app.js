@@ -21,8 +21,7 @@ app.use(cors());
  * MAIN BASE ROUTER WITH IMPORTED ROUTES
  */
 app.use("/api/user", userRoutes);
-app.use("/api/car", carRoutes);
-
+app.use("/api/cars", carRoutes);
 
 /**
  * MAIN BASE GET PATH
@@ -32,7 +31,7 @@ app.get("/", (req, res) => {
 });
 
 /**
- * NODEJS SERVER    
+ * NODEJS SERVER
  */
 mongoose
   .connect(

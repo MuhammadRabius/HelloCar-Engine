@@ -6,7 +6,7 @@ const router = express.Router();
 
 /**
  * /api/user
- * http://localhost:3000/api/user
+ * http://localhost:3000/api/cars
  */
 
 router.post("/create-car", controller.createCar);
