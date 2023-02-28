@@ -58,10 +58,9 @@ exports.registration = async (req, res, next) => {
       const error = new Error(`A user with this email already registered!`);
       user = userExists;
       message = error.message;
-      res.status(400).json({
+      res.status(200).json({
         success: false,
         message: message,
-        data: user,
       });
     } else {
       const userData = new User(req.body);
