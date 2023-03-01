@@ -74,9 +74,30 @@ exports.offerCar = async (req, res, next) => {
     const carData = await Car.findOneAndUpdate({ _id: id }, req.body, {
       new: true,
     });
-    message = "Successfully Update";
+    message = "Offer Price Updated";
 
     res.status(201).json({
+      success: true,
+      message: message,
+      data: carData,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// get  data
+exports.searchCar = async (req, res, next) => {
+  try {
+    const brand = req.query.brand;
+    const set = req.query.set;
+    const minP = req.query.minP;
+    const maxP = req.query.maxP;
+
+    const carData = await Car.find({ brandName: brand, sets: set });
+    message = "Successfully fetch Cars";
+
+    res.status(200).json({
       success: true,
       message: message,
       data: carData,

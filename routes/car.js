@@ -14,6 +14,7 @@ router.get("/my-car", controller.getCar);
 router.put("/update-car/:id", controller.updateCar);
 router.put("/offer-car/:id", controller.offerCar);
 router.delete("/delete-car/:id", controller.deleteCar);
+router.get("/search-car", controller.searchCar);
 
 // Export All router..
 module.exports = router;
