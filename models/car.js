@@ -9,6 +9,7 @@ const schema = new Schema(
     buyingPrice: { type: Number },
     sellPrice: { type: Number },
     sets: { type: Number },
+    description: { type: String },
     image: { type: String },
   },
   {
