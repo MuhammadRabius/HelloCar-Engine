@@ -94,8 +94,12 @@ exports.searchCar = async (req, res, next) => {
     const minP = req.query.minP;
     const maxP = req.query.maxP;
 
-    const carData = await Car.find({ brandName: brand, sets: set });
-    message = "Successfully fetch Cars";
+    const carData = await Car.find({
+      brandName: brand,
+      sets: set,
+      sellPrice: { $gte: minP, $lte: maxP },
+    });
+    message = "Search Connected";
 
     res.status(200).json({
       success: true,
