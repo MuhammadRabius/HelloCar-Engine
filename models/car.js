@@ -8,6 +8,7 @@ const schema = new Schema(
     releaseDate: { type: Date },
     buyingPrice: { type: Number },
     sellPrice: { type: Number },
+    offerPrice: { type: Number },
     sets: { type: Number },
     description: { type: String },
     image: { type: String },

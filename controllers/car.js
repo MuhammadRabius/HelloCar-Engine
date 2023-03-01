@@ -66,3 +66,22 @@ exports.deleteCar = async (req, res, next) => {
     console.log(err);
   }
 };
+
+//// update Offer Data --
+exports.offerCar = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const carData = await Car.findOneAndUpdate({ _id: id }, req.body, {
+      new: true,
+    });
+    message = "Successfully Update";
+
+    res.status(201).json({
+      success: true,
+      message: message,
+      data: carData,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
