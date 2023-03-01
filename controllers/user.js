@@ -34,10 +34,19 @@ exports.login = async (req, res, next) => {
       } else {
         const error = new Error(`Wrong password!`);
         message = error.message;
+
+        res.status(200).json({
+          success: true,
+          message: message,
+        });
       }
     } else {
       const error = new Error(`User not found!`);
       message = error.message;
+      res.status(200).json({
+        success: true,
+        message: message,
+      });
     }
   } catch (err) {
     if (!err.statusCode) {
@@ -47,6 +56,7 @@ exports.login = async (req, res, next) => {
     next(err);
   }
 };
+
 exports.registration = async (req, res, next) => {
   try {
     const email = req.body.email;
