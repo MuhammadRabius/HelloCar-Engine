@@ -25,7 +25,7 @@ exports.getCar = async (req, res, next) => {
     res.status(200).json({
       success: true,
       message: message,
-      data: newCar,
+      data: carData,
     });
   } catch (err) {
     console.log(err);
