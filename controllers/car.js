@@ -35,7 +35,7 @@ exports.getCar = async (req, res, next) => {
 // update Data --
 exports.updateCar = async (req, res, next) => {
   try {
-    const param = req.params.id;
+    const { id } = req.params.id;
     const carData = await Car.findOneAndUpdate({ _id: id }, req.body, {
       new: true,
     });
@@ -54,11 +54,11 @@ exports.updateCar = async (req, res, next) => {
 // Delete Data
 exports.deleteCar = async (req, res, next) => {
   try {
-    const param = req.params.id;
+    const { id } = req.params.id;
     const carData = await Car.findOneAndDelete({ _id: id });
     message = "Successfully Delete";
 
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       message: message,
     });
