@@ -15,3 +15,54 @@ exports.createCar = async (req, res, next) => {
     console.log(err);
   }
 };
+
+// get  data
+exports.getCar = async (req, res, next) => {
+  try {
+    const carData = await Car.find({});
+    message = "Successfully fetch Cars";
+
+    res.status(200).json({
+      success: true,
+      message: message,
+      data: newCar,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// update Data --
+exports.updateCar = async (req, res, next) => {
+  try {
+    const param = req.params.id;
+    const carData = await Car.findOneAndUpdate({ _id: id }, req.body, {
+      new: true,
+    });
+    message = "Successfully Update";
+
+    res.status(201).json({
+      success: true,
+      message: message,
+      data: newCar,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// Delete Data
+exports.deleteCar = async (req, res, next) => {
+  try {
+    const param = req.params.id;
+    const carData = await Car.findOneAndDelete({ _id: id });
+    message = "Successfully Delete";
+
+    res.status(201).json({
+      success: true,
+      message: message,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
